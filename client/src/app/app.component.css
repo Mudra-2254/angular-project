@@ -1,0 +1,12 @@
+/* ═══════ PAGE TRANSITIONS ═══════ */
+.page-transition-wrapper {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.page-transition-wrapper.transitioning {
+  opacity: 0;
+  transform: translateY(12px);
+}

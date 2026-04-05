@@ -1,0 +1,77 @@
+/* Google Font - Inter included by default in project */
+
+.luxury-admin-container {
+    --primary: #4f46e5;
+    --success: #10b981;
+    --amber: #f59e0b;
+    --rose: #f43f5e;
+    --slate-text: #0f172a;
+    animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Custom Scrollbar for Luxury tabs */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Stats Card Hover Effect */
+.luxury-card-stat {
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.luxury-card-stat:hover {
+    box-shadow: 0 40px 60px -20px rgba(15, 23, 42, 0.15);
+}
+
+/* Luxury Row Hover */
+tr.group\/row {
+    transition: background 0.3s ease;
+}
+tr.group\/row:hover {
+    background-color: rgba(79, 70, 229, 0.03);
+}
+
+/* Status Badges refinement */
+.luxury-status-badge {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Live Badge Glow */
+.luxury-badge-live {
+    box-shadow: 0 4px 15px rgba(79, 70, 229, 0.1);
+}
+
+/* Table Typo Refinement */
+th {
+    letter-spacing: 0.15em;
+    font-size: 0.65rem !important;
+}
+
+/* Animations */
+@keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.animate-fade-in {
+    animation: fade-in 0.6s ease-out forwards;
+}
+
+/* Custom Checkbox / Inputs if needed */
+input::placeholder {
+    font-weight: 500;
+}
+
+/* Responsive Table container */
+.overflow-x-auto {
+    scrollbar-width: thin;
+    scrollbar-color: #e2e8f0 transparent;
+}

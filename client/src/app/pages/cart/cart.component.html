@@ -1,0 +1,87 @@
+<!-- ═══════ CART — LUXURY EXPERIENCE ═══════ -->
+<section class="py-20 min-h-[calc(100vh-72px)] relative overflow-hidden">
+
+  <!-- Background -->
+  <div class="absolute w-[400px] h-[400px] bg-primary-500 rounded-full -top-40 -right-40 opacity-[0.03] blur-[140px]"></div>
+
+  <div class="max-w-5xl mx-auto px-6">
+
+    <!-- Header -->
+    <div class="flex items-end justify-between mb-12 animate-fade-in-up">
+      <div>
+        <span class="inline-block px-4 py-1.5 text-[10px] font-semibold tracking-[3px] uppercase text-primary-400 bg-primary-500/8 border border-primary-500/15 rounded-full mb-4" style="font-family: 'Inter', sans-serif;">
+          Shopping Bag
+        </span>
+        <h1 class="text-4xl sm:text-5xl font-light" style="font-family: 'Cormorant Garamond', serif;">
+          Your <span class="text-gold-gradient italic font-medium">Cart</span>
+        </h1>
+        <p class="text-slate-400 mt-2 text-sm" style="font-family: 'Inter', sans-serif;">{{ cartItems.length }} item{{ cartItems.length !== 1 ? 's' : '' }} selected</p>
+      </div>
+      <a routerLink="/products" class="px-6 py-3 border border-white/[0.06] text-slate-300 text-sm font-medium rounded-full hover:bg-white/5 hover:border-white/10 transition-all duration-300" style="font-family: 'Inter', sans-serif;">
+        ← Continue Shopping
+      </a>
+    </div>
+
+    <!-- Cart Items -->
+    <div *ngIf="cartItems.length" class="space-y-4 mb-10">
+      <div *ngFor="let item of cartItems; let i = index"
+          class="luxury-card bg-card/60 backdrop-blur-xl border border-white/[0.05] rounded-2xl p-6 flex flex-col sm:flex-row items-center gap-6 animate-fade-in-up"
+          [style.animation-delay]="(i * 0.1) + 's'">
+
+        <!-- Image -->
+        <div class="w-24 h-24 rounded-xl overflow-hidden bg-slate-900/50 shrink-0 luxury-frame">
+          <img [src]="item.image" [alt]="item.pname" class="w-full h-full object-cover">
+        </div>
+
+        <!-- Details -->
+        <div class="flex-grow text-center sm:text-left">
+          <h4 class="text-xl capitalize" style="font-family: 'Cormorant Garamond', serif;">
+            <a [routerLink]="['/products', item.productId]" class="hover:text-primary-400 transition-colors">{{ item.pname }}</a>
+          </h4>
+          <p *ngIf="item.pdesc" class="text-slate-500 text-xs mt-1 line-clamp-1" style="font-family: 'Inter', sans-serif;">{{ item.pdesc }}</p>
+        </div>
+
+        <!-- Price & Quantity -->
+        <div class="flex flex-col items-center gap-3" style="font-family: 'Inter', sans-serif;">
+          <span class="text-lg font-bold text-primary-300">₹{{ item.price }} × {{ item.quantity }}</span>
+          <div class="flex items-center border border-white/[0.06] rounded-lg overflow-hidden bg-white/[0.02]">
+            <button (click)="decreaseQty(item)" class="px-3.5 py-1.5 text-slate-300 hover:bg-white/5 hover:text-primary-400 transition-all text-sm">−</button>
+            <span class="px-3 py-1.5 text-sm font-medium border-x border-white/[0.06]">{{ item.quantity }}</span>
+            <button (click)="increaseQty(item)" class="px-3.5 py-1.5 text-slate-300 hover:bg-white/5 hover:text-primary-400 transition-all text-sm">+</button>
+          </div>
+        </div>
+
+        <!-- Remove -->
+        <button (click)="removeItem(item.id)"
+          class="px-5 py-2.5 text-xs font-semibold tracking-wider uppercase border border-red-500/20 text-red-400 rounded-full hover:bg-red-500 hover:text-white hover:border-red-500 transition-all duration-300 shrink-0" style="font-family: 'Inter', sans-serif;">
+          Remove
+        </button>
+      </div>
+    </div>
+
+    <!-- Total -->
+    <div *ngIf="cartItems.length" class="bg-card/60 backdrop-blur-xl border border-white/[0.05] rounded-2xl p-8 flex flex-col sm:flex-row items-center justify-between gap-5 animate-fade-in-up" style="animation-delay: 0.4s;">
+      <div>
+        <p class="text-slate-400 text-xs tracking-wider uppercase mb-1" style="font-family: 'Inter', sans-serif;">Total Amount</p>
+        <h3 class="text-4xl font-light text-gold-gradient" style="font-family: 'Cormorant Garamond', serif;">
+          ₹{{ totalPrice }}</h3>
+      </div>
+      <button routerLink="/checkout"
+        class="btn-luxury px-10 py-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-full shadow-lg shadow-primary-500/20 text-sm tracking-wide" style="font-family: 'Inter', sans-serif;">
+        Proceed to Checkout
+      </button>
+    </div>
+
+    <!-- Empty State -->
+    <div *ngIf="!cartItems.length" class="text-center py-32 animate-fade-in-up">
+      <div class="text-6xl mb-6 animate-float">🛒</div>
+      <h3 class="text-2xl font-light mb-3" style="font-family: 'Cormorant Garamond', serif;">Your Cart is <span class="italic text-gold-gradient">Empty</span></h3>
+      <p class="text-slate-400 mb-8 text-sm" style="font-family: 'Inter', sans-serif;">Discover our luxury fragrance collection.</p>
+      <a routerLink="/products"
+        class="btn-luxury inline-block px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-full shadow-lg shadow-primary-500/20 text-sm" style="font-family: 'Inter', sans-serif;">
+        Browse Collection
+      </a>
+    </div>
+
+  </div>
+</section>

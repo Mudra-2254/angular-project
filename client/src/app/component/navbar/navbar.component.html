@@ -1,0 +1,129 @@
+<!-- ═══════ PREMIUM LUXURY NAVBAR ═══════ -->
+<nav class="fixed top-0 w-full z-50 transition-all duration-500"
+     [class]="scrolled ? 'bg-dark/85 backdrop-blur-2xl shadow-lg shadow-black/20 border-b border-white/[0.04]' : 'bg-transparent'">
+
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress-track">
+    <div class="scroll-progress-bar" [style.width.%]="scrollProgress"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+
+    <!-- Brand -->
+    <a routerLink=""
+      class="flex items-center gap-2 group transition-all duration-300">
+      <span class="text-xl font-light tracking-[2px] text-white group-hover:text-primary-300 transition-colors duration-300" style="font-family: 'Cormorant Garamond', serif;">
+        <span class="text-primary-400 font-medium">Z</span>ENVORA
+      </span>
+    </a>
+
+    <!-- Desktop Nav -->
+    <div class="hidden md:flex items-center gap-1" style="font-family: 'Inter', sans-serif;">
+
+      <a routerLink="" routerLinkActive="nav-active"
+        [routerLinkActiveOptions]="{exact: true}"
+        class="nav-link-luxury px-5 py-2.5 rounded-full text-[13px] font-medium text-slate-300 hover:text-white transition-all duration-300 relative">
+        Home
+      </a>
+
+      <a routerLink="products" routerLinkActive="nav-active"
+        class="nav-link-luxury px-5 py-2.5 rounded-full text-[13px] font-medium text-slate-300 hover:text-white transition-all duration-300 relative">
+        Collection
+      </a>
+
+      <!-- NOT logged in -->
+      <ng-container *ngIf="!(authService.currentUser$ | async)">
+
+        <a routerLink="login"
+          class="nav-link-luxury px-5 py-2.5 rounded-full text-[13px] font-medium text-slate-300 hover:text-white transition-all duration-300">
+          Sign In
+        </a>
+
+        <a routerLink="register"
+          class="ml-3 px-6 py-2.5 bg-gradient-to-r from-primary-500 to-primary-600 text-white text-[13px] font-semibold rounded-full shadow-md shadow-primary-500/20 hover:shadow-primary-500/40 hover:-translate-y-0.5 transition-all duration-300">
+          Join Us
+        </a>
+
+      </ng-container>
+
+      <!-- Logged in -->
+      <ng-container *ngIf="authService.currentUser$ | async as user">
+
+        <a routerLink="orders" routerLinkActive="nav-active"
+          class="nav-link-luxury px-5 py-2.5 rounded-full text-[13px] font-medium text-slate-300 hover:text-white transition-all duration-300">
+          📦 Orders
+        </a>
+
+        <a routerLink="cart" routerLinkActive="nav-active"
+          class="nav-link-luxury px-5 py-2.5 rounded-full text-[13px] font-medium text-slate-300 hover:text-white transition-all duration-300">
+          🛒 Cart
+        </a>
+
+        <div class="ml-3 flex items-center gap-3 pl-3 border-l border-slate-700/50">
+          <span class="text-xs text-slate-500 max-w-[120px] truncate">
+            {{ user.email }}
+          </span>
+          <button (click)="logout()"
+            class="px-5 py-2 bg-white/5 text-slate-300 text-[12px] font-semibold rounded-full border border-white/10 hover:bg-white hover:text-slate-900 transition-all duration-300">
+            Logout
+          </button>
+        </div>
+
+      </ng-container>
+
+    </div>
+
+    <!-- Mobile Toggle -->
+    <button (click)="mobileMenuOpen = !mobileMenuOpen"
+      class="md:hidden text-xl text-white hover:text-primary-400 transition-colors p-2">
+      <span *ngIf="!mobileMenuOpen">☰</span>
+      <span *ngIf="mobileMenuOpen">✕</span>
+    </button>
+
+  </div>
+
+  <!-- Mobile Menu -->
+  <div *ngIf="mobileMenuOpen"
+    class="md:hidden bg-dark/95 backdrop-blur-2xl border-t border-white/[0.04]">
+
+    <div class="px-6 py-5 flex flex-col gap-2" style="font-family: 'Inter', sans-serif;">
+
+      <a routerLink="" (click)="mobileMenuOpen = false"
+        class="py-3 px-4 text-slate-300 hover:text-white hover:bg-white/5 rounded-xl transition-all text-sm font-medium">
+        Home
+      </a>
+
+      <a routerLink="products" (click)="mobileMenuOpen = false"
+        class="py-3 px-4 text-slate-300 hover:text-white hover:bg-white/5 rounded-xl transition-all text-sm font-medium">
+        Collection
+      </a>
+
+      <ng-container *ngIf="!(authService.currentUser$ | async)">
+        <a routerLink="login" (click)="mobileMenuOpen = false"
+          class="py-3 px-4 text-slate-300 hover:text-white hover:bg-white/5 rounded-xl transition-all text-sm font-medium">
+          Sign In
+        </a>
+        <a routerLink="register" (click)="mobileMenuOpen = false"
+          class="py-3 px-4 text-center bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-xl text-sm font-semibold">
+          Join Us
+        </a>
+      </ng-container>
+
+      <ng-container *ngIf="authService.currentUser$ | async">
+        <a routerLink="cart" (click)="mobileMenuOpen = false"
+          class="py-3 px-4 text-slate-300 hover:text-white hover:bg-white/5 rounded-xl transition-all text-sm font-medium">
+          🛒 Cart
+        </a>
+        <button (click)="logout(); mobileMenuOpen = false"
+          class="py-3 px-4 text-red-400 hover:bg-red-500/10 rounded-xl transition-all text-sm font-medium text-left">
+          Logout
+        </button>
+      </ng-container>
+
+    </div>
+
+  </div>
+
+</nav>
+
+<div class="h-[72px]"></div>

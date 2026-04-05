@@ -1,0 +1,100 @@
+.toast-container {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  z-index: 10000;
+  min-width: 300px;
+  max-width: 450px;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.25rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  animation: toast-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.toast-content {
+  display: flex;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  gap: 1rem;
+}
+
+.toast-icon {
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.toast-message {
+  flex: 1;
+  color: #f8fafc;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.toast-close {
+  background: none;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  padding: 0.25rem;
+  font-size: 1.25rem;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+}
+
+.toast-close:hover {
+  color: #f8fafc;
+}
+
+/* Types */
+.success .toast-icon { color: #22c55e; }
+.success { border-left: 4px solid #22c55e; }
+
+.error .toast-icon { color: #ef4444; }
+.error { border-left: 4px solid #ef4444; }
+
+.info .toast-icon { color: #3b82f6; }
+.info { border-left: 4px solid #3b82f6; }
+
+.warning .toast-icon { color: #f59e0b; }
+.warning { border-left: 4px solid #f59e0b; }
+
+/* Progress bar */
+.toast-progress {
+  height: 3px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  position: relative;
+}
+
+.toast-progress::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: currentColor;
+  transform-origin: left;
+  animation: progress linear forwards;
+}
+
+.success .toast-progress::after { background: #22c55e; }
+.error .toast-progress::after { background: #ef4444; }
+.info .toast-progress::after { background: #3b82f6; }
+.warning .toast-progress::after { background: #f59e0b; }
+
+@keyframes toast-in {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes progress {
+  from { transform: scaleX(1); }
+  to { transform: scaleX(0); }
+}

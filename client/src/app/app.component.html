@@ -1,0 +1,9 @@
+<app-navbar *ngIf="showLayout"></app-navbar>
+
+<!-- Page Transition Wrapper -->
+<div class="page-transition-wrapper" [class.transitioning]="isTransitioning">
+  <router-outlet></router-outlet>
+</div>
+
+<app-footer *ngIf="showLayout"></app-footer>
+<app-toast></app-toast>

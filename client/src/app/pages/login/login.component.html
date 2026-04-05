@@ -1,0 +1,61 @@
+<!-- ═══════ LOGIN — LUXURY EXPERIENCE ═══════ -->
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden py-12">
+
+    <!-- Animated Background -->
+    <div class="absolute w-[500px] h-[500px] bg-primary-500 rounded-full -top-32 -right-32 opacity-[0.06] blur-[140px] animate-morph"></div>
+    <div class="absolute w-[400px] h-[400px] bg-secondary-500 rounded-full -bottom-32 -left-32 opacity-[0.06] blur-[140px] animate-morph" style="animation-delay: 4s;"></div>
+    <div class="absolute inset-0 opacity-[0.02]" style="background-image: linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 60px 60px;"></div>
+
+    <!-- Particles -->
+    <div class="particles">
+        <div class="particle" style="left:20%; bottom:0; animation-duration:10s; animation-delay:0s;"></div>
+        <div class="particle" style="left:50%; bottom:0; animation-duration:12s; animation-delay:2s; width:2px; height:2px;"></div>
+        <div class="particle" style="left:80%; bottom:0; animation-duration:11s; animation-delay:4s;"></div>
+    </div>
+
+    <div class="w-full max-w-md mx-auto px-6 relative z-10 animate-scale-in">
+        <div class="bg-card/40 backdrop-blur-2xl border border-white/[0.06] rounded-[2rem] p-9 sm:p-11 shadow-2xl">
+
+            <!-- Header -->
+            <div class="text-center mb-9">
+                <div class="w-20 h-20 bg-gradient-to-br from-primary-500/20 to-secondary-500/20 rounded-2xl flex items-center justify-center mx-auto mb-6 text-3xl border border-white/[0.06] animate-float">
+                    👤
+                </div>
+                <h2 class="text-3xl font-light mb-2" style="font-family: 'Cormorant Garamond', serif;">Welcome <span class="text-gold-gradient italic">Back</span></h2>
+                <p class="text-slate-400 text-sm" style="font-family: 'Inter', sans-serif;">Sign in to your Zenvora account</p>
+            </div>
+
+            <!-- Error -->
+            <div *ngIf="errorMessage"
+                class="mb-5 p-3.5 bg-red-500/8 border border-red-500/15 rounded-xl text-red-400 text-sm text-center" style="font-family: 'Inter', sans-serif;">
+                {{ errorMessage }}
+            </div>
+
+            <!-- Form -->
+            <form [formGroup]="loginForm" (ngSubmit)="login()" class="space-y-5" style="font-family: 'Inter', sans-serif;">
+                <div>
+                    <label for="email" class="block text-xs font-semibold text-slate-400 mb-2.5 tracking-wider uppercase">Email Address</label>
+                    <input formControlName="email" type="email" id="email" placeholder="Enter your email"
+                        class="w-full px-5 py-3.5 bg-white/[0.03] border border-white/[0.08] rounded-xl text-slate-100 placeholder-slate-600 text-sm focus:outline-none focus:border-primary-500/40 focus:ring-2 focus:ring-primary-500/10 transition-all duration-300">
+                </div>
+
+                <div>
+                    <label for="password" class="block text-xs font-semibold text-slate-400 mb-2.5 tracking-wider uppercase">Password</label>
+                    <input formControlName="password" type="password" id="password" placeholder="Enter your password"
+                        class="w-full px-5 py-3.5 bg-white/[0.03] border border-white/[0.08] rounded-xl text-slate-100 placeholder-slate-600 text-sm focus:outline-none focus:border-primary-500/40 focus:ring-2 focus:ring-primary-500/10 transition-all duration-300">
+                </div>
+
+                <button type="submit"
+                    class="btn-luxury w-full py-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-xl shadow-lg shadow-primary-500/20 text-sm tracking-wide">
+                    Sign In
+                </button>
+
+                <p class="text-center text-slate-400 text-sm pt-2">
+                    Don't have an account?
+                    <a routerLink="/register"
+                        class="text-primary-400 hover:text-primary-300 font-semibold transition-colors">Create Account</a>
+                </p>
+            </form>
+        </div>
+    </div>
+</section>

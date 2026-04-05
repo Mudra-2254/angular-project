@@ -1,0 +1,76 @@
+<!-- ═══════ PRODUCTS PAGE — LUXURY COLLECTION (GSAP) ═══════ -->
+<section class="py-20 relative overflow-hidden min-h-screen">
+
+    <!-- Background decoration -->
+    <div class="bg-orb absolute w-[400px] h-[400px] bg-primary-500 rounded-full -top-40 -right-40 opacity-[0.04] blur-[140px] animate-morph"></div>
+    <div class="bg-orb absolute w-[300px] h-[300px] bg-secondary-500 rounded-full -bottom-20 -left-20 opacity-[0.04] blur-[120px] animate-morph" style="animation-delay: 5s;"></div>
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <!-- Header -->
+        <div class="text-center mb-16">
+            <span appScrollAnimate animation="fadeDown" [duration]="0.7"
+                class="inline-block px-4 py-1.5 text-[10px] font-semibold tracking-[3px] uppercase text-primary-400 bg-primary-500/8 border border-primary-500/15 rounded-full mb-5" style="font-family: 'Inter', sans-serif;">
+                Full Collection
+            </span>
+            <h1 appScrollAnimate animation="blurIn" [delay]="0.1"
+                class="text-4xl sm:text-5xl lg:text-6xl font-light mb-4" style="font-family: 'Cormorant Garamond', serif;">
+                Our
+                <span class="text-luxury-gradient italic font-medium">Fragrances</span>
+            </h1>
+            <p appScrollAnimate animation="fadeUp" [delay]="0.25"
+                class="text-slate-400 text-lg max-w-md mx-auto" style="font-family: 'Inter', sans-serif;">
+                Explore our curated collection of luxury perfumes
+            </p>
+        </div>
+
+        <!-- Products Grid -->
+        <div *ngIf="products.length" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7">
+            <div *ngFor="let product of products; let i = index"
+                appScrollAnimate animation="fadeUp" [delay]="i * 0.08" [duration]="0.9"
+                class="luxury-card group bg-card border border-white/[0.05] rounded-2xl overflow-hidden">
+
+                <!-- Image -->
+                <div class="h-64 overflow-hidden bg-slate-900/50 relative">
+                    <img [src]="product.image" [alt]="product.pname"
+                        class="img-reveal w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <!-- Gradient overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-70"></div>
+                    <!-- Quick view overlay -->
+                    <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 bg-black/20 backdrop-blur-[2px]">
+                        <a [routerLink]="['/products', product.id]"
+                            class="px-6 py-3 bg-white/10 backdrop-blur-md text-white text-sm font-medium rounded-full border border-white/20 hover:bg-white/20 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500" style="font-family: 'Inter', sans-serif;">
+                            Quick View →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Info -->
+                <div class="p-6">
+                    <h5 class="mb-1" style="font-family: 'Cormorant Garamond', serif;">
+                        <a [routerLink]="['/products', product.id]"
+                            class="text-slate-100 hover:text-primary-400 transition-colors capitalize text-xl font-medium">
+                            {{product.pname}}
+                        </a>
+                    </h5>
+                    <p *ngIf="product.pdesc" class="text-slate-500 text-xs mb-4 line-clamp-2" style="font-family: 'Inter', sans-serif;">{{product.pdesc}}</p>
+                    <div class="flex items-center justify-between pt-3 border-t border-white/[0.04]">
+                        <span class="text-xl font-bold text-primary-300" style="font-family: 'Inter', sans-serif;">₹{{product.price}}</span>
+                        <a [routerLink]="['/products', product.id]"
+                            class="px-4 py-2 text-[10px] font-semibold tracking-widest uppercase border border-primary-500/30 text-primary-400 rounded-full hover:bg-primary-500 hover:text-white hover:border-primary-500 transition-all duration-300" style="font-family: 'Inter', sans-serif;">
+                            Details
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Empty state -->
+        <div *ngIf="!products.length" class="text-center py-32">
+            <div class="text-6xl mb-6 animate-float">🌸</div>
+            <h3 class="text-2xl font-light mb-3" style="font-family: 'Cormorant Garamond', serif;">No Fragrances Available</h3>
+            <p class="text-slate-400" style="font-family: 'Inter', sans-serif;">Our collection is being updated. Check back soon.</p>
+        </div>
+
+    </div>
+</section>

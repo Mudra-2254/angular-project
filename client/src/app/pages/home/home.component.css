@@ -1,0 +1,37 @@
+/* ═══════ HOME — GSAP Animation Helpers ═══════ */
+
+/* Hero word stagger — ensure perspective for rotateX */
+.hero-heading {
+  perspective: 800px;
+}
+
+.hero-word {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+/* Hide elements initially before GSAP takes over */
+.hero-badge,
+.hero-sub,
+.hero-tag,
+.hero-cta,
+.hero-stat,
+.hero-image-wrap,
+.scroll-indicator {
+  will-change: transform, opacity, filter;
+}
+
+/* Smooth image parallax */
+.hero-parallax {
+  will-change: transform;
+}
+
+/* Story image clip reveal */
+.story-image {
+  will-change: clip-path, filter, transform;
+}
+
+/* CTA card entrance */
+.cta-card {
+  will-change: transform, opacity;
+}

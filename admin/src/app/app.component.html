@@ -1,0 +1,12 @@
+<app-sidebar *ngIf="showSidebar">
+  <router-outlet></router-outlet>
+</app-sidebar>
+
+<!-- For login page (no sidebar) -->
+<div *ngIf="!showSidebar" class="d-flex min-vh-100 w-100"
+  style="background: linear-gradient(135deg, #6c5ce7, #00b894);">
+  <main class="container w-100 d-flex justify-content-center align-items-center">
+    <router-outlet></router-outlet>
+  </main>
+</div>
+<app-toast></app-toast>

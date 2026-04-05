@@ -1,0 +1,335 @@
+<!-- ═══════ HERO SECTION — Cinematic Luxury (GSAP) ═══════ -->
+<section class="relative min-h-[92vh] flex items-center overflow-hidden">
+
+    <!-- Animated Background Orbs (parallax targets) -->
+    <div class="bg-orb absolute w-[600px] h-[600px] bg-primary-500 rounded-full -top-48 -right-24 opacity-10 blur-[140px] animate-morph"></div>
+    <div class="bg-orb absolute w-[500px] h-[500px] bg-secondary-500 rounded-full -bottom-36 -left-24 opacity-10 blur-[140px] animate-morph" style="animation-delay: 3s;"></div>
+    <div class="bg-orb absolute w-[300px] h-[300px] bg-primary-400 rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.05] blur-[100px] animate-morph"></div>
+
+    <!-- Particle Effects -->
+    <div class="particles">
+        <div class="particle" style="left:10%; bottom:0; animation-duration:8s; animation-delay:0s;"></div>
+        <div class="particle" style="left:25%; bottom:0; animation-duration:11s; animation-delay:1.5s; width:2px; height:2px;"></div>
+        <div class="particle" style="left:40%; bottom:0; animation-duration:9s; animation-delay:3s;"></div>
+        <div class="particle" style="left:55%; bottom:0; animation-duration:12s; animation-delay:2s; width:4px; height:4px;"></div>
+        <div class="particle" style="left:70%; bottom:0; animation-duration:10s; animation-delay:4s;"></div>
+        <div class="particle" style="left:85%; bottom:0; animation-duration:13s; animation-delay:1s; width:2px; height:2px;"></div>
+        <div class="particle" style="left:15%; bottom:0; animation-duration:14s; animation-delay:5s;"></div>
+        <div class="particle" style="left:60%; bottom:0; animation-duration:9s; animation-delay:6s; width:4px; height:4px; background: rgba(168,85,247,0.5);"></div>
+        <div class="particle" style="left:90%; bottom:0; animation-duration:11s; animation-delay:3.5s; background: rgba(168,85,247,0.4);"></div>
+    </div>
+
+    <!-- Decorative Grid Lines -->
+    <div class="absolute inset-0 opacity-[0.015]" style="background-image: linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 80px 80px;"></div>
+
+    <div class="max-w-7xl mx-auto px-6 w-full py-20">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+            <!-- LEFT — Text Content (GSAP Stagger) -->
+            <div class="max-w-2xl">
+
+                <!-- Badge -->
+                <span class="hero-badge inline-flex items-center gap-2 px-5 py-2 text-xs font-semibold tracking-[2px] uppercase text-primary-300 bg-primary-500/10 border border-primary-500/20 rounded-full mb-8" style="font-family: 'Inter', sans-serif;">
+                    <span class="w-2 h-2 bg-primary-400 rounded-full animate-pulse"></span>
+                    New Luxury Collection 2026
+                </span>
+
+                <!-- Heading with word-level stagger -->
+                <h1 class="hero-heading text-5xl sm:text-6xl lg:text-7xl font-light leading-[1.05] mb-8" style="font-family: 'Cormorant Garamond', serif;">
+                    <span class="hero-word inline-block mr-3">Discover</span>
+                    <span class="hero-word inline-block">the</span><br>
+                    <span class="hero-word inline-block mr-3">Essence</span>
+                    <span class="hero-word inline-block mr-3">of</span>
+                    <span class="hero-word inline-block relative">
+                        <span class="text-luxury-gradient font-semibold italic">Zenvora</span>
+                        <span class="absolute -bottom-1 left-0 w-full h-[1px] bg-gradient-to-r from-primary-400 via-secondary-400 to-transparent"></span>
+                    </span>
+                </h1>
+
+                <!-- Subheading -->
+                <p class="hero-sub text-lg text-slate-400 max-w-lg mb-8 leading-relaxed" style="font-family: 'Inter', sans-serif;">
+                    Elevate your presence with premium fragrances crafted for elegance and confidence.
+                    From fresh daytime scents to bold evening statements.
+                </p>
+
+                <!-- Fragrance Tags (staggered) -->
+                <div class="flex flex-wrap gap-3 text-xs tracking-wider uppercase mb-10" style="font-family: 'Inter', sans-serif;">
+                    <span class="hero-tag px-4 py-1.5 border border-primary-500/20 rounded-full text-primary-300/80 hover:bg-primary-500/10 hover:border-primary-400/40 transition-all duration-300 cursor-default">🌸 Floral</span>
+                    <span class="hero-tag px-4 py-1.5 border border-primary-500/20 rounded-full text-primary-300/80 hover:bg-primary-500/10 hover:border-primary-400/40 transition-all duration-300 cursor-default">🪵 Woody</span>
+                    <span class="hero-tag px-4 py-1.5 border border-primary-500/20 rounded-full text-primary-300/80 hover:bg-primary-500/10 hover:border-primary-400/40 transition-all duration-300 cursor-default">🍃 Fresh</span>
+                    <span class="hero-tag px-4 py-1.5 border border-primary-500/20 rounded-full text-primary-300/80 hover:bg-primary-500/10 hover:border-primary-400/40 transition-all duration-300 cursor-default">✨ Oriental</span>
+                </div>
+
+                <!-- CTA Buttons (staggered) -->
+                <div class="flex flex-wrap gap-4">
+                    <a routerLink="products"
+                        class="hero-cta btn-luxury px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-full shadow-lg shadow-primary-500/20 text-sm tracking-wide" style="font-family: 'Inter', sans-serif;">
+                        Explore Collection
+                    </a>
+                    <a routerLink="register"
+                        class="hero-cta px-8 py-4 border border-slate-600/50 text-slate-300 font-semibold rounded-full hover:bg-white/5 hover:border-slate-500 transition-all duration-400 text-sm tracking-wide" style="font-family: 'Inter', sans-serif;">
+                        Create Account
+                    </a>
+                </div>
+
+                <!-- Luxury Stats (staggered) -->
+                <div class="flex gap-12 flex-wrap mt-16">
+                    <div class="hero-stat group cursor-default">
+                        <h3 class="text-3xl font-light text-gold-gradient group-hover:scale-105 transition-transform" style="font-family: 'Cormorant Garamond', serif;">500+</h3>
+                        <p class="text-slate-500 text-xs mt-1 tracking-wider uppercase" style="font-family: 'Inter', sans-serif;">Luxury Perfumes</p>
+                    </div>
+                    <div class="hero-stat group cursor-default">
+                        <h3 class="text-3xl font-light text-gold-gradient group-hover:scale-105 transition-transform" style="font-family: 'Cormorant Garamond', serif;">20K+</h3>
+                        <p class="text-slate-500 text-xs mt-1 tracking-wider uppercase" style="font-family: 'Inter', sans-serif;">Happy Clients</p>
+                    </div>
+                    <div class="hero-stat group cursor-default">
+                        <h3 class="text-3xl font-light text-gold-gradient group-hover:scale-105 transition-transform" style="font-family: 'Cormorant Garamond', serif;">4.9★</h3>
+                        <p class="text-slate-500 text-xs mt-1 tracking-wider uppercase" style="font-family: 'Inter', sans-serif;">Customer Rating</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT — Hero Image (blur reveal + parallax) -->
+            <div class="hero-image-wrap hero-parallax relative hidden lg:flex justify-center items-center">
+                <!-- Glowing rings behind image -->
+                <div class="absolute w-[350px] h-[350px] rounded-full border border-primary-500/10 animate-spin-slow"></div>
+                <div class="absolute w-[420px] h-[420px] rounded-full border border-secondary-500/5 animate-spin-slow" style="animation-direction: reverse; animation-duration: 45s;"></div>
+
+                <div class="relative luxury-frame rounded-3xl overflow-hidden">
+                    <img
+                        src="/images/aqua.jpg"
+                        alt="Zenvora Luxury Perfume Collection"
+                        class="rounded-3xl shadow-2xl max-w-[380px] h-auto transform hover:scale-[1.03] transition-transform duration-700"
+                    >
+                    <!-- Shimmer overlay -->
+                    <div class="absolute inset-0 rounded-3xl animate-shimmer pointer-events-none"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+        <span class="text-[10px] tracking-[3px] uppercase text-slate-500" style="font-family: 'Inter', sans-serif;">Scroll</span>
+        <div class="w-5 h-8 border border-slate-600/50 rounded-full flex items-start justify-center p-1">
+            <div class="w-1 h-2 bg-primary-400 rounded-full animate-bounce"></div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- ═══════ WHY CHOOSE ZENVORA (Scroll Triggered) ═══════ -->
+<section class="py-24 bg-card/40 relative overflow-hidden">
+
+    <div class="bg-orb absolute w-[500px] h-[500px] bg-primary-500 opacity-[0.04] blur-[140px] -top-40 -left-40 rounded-full animate-morph"></div>
+    <div class="bg-orb absolute w-[500px] h-[500px] bg-secondary-500 opacity-[0.04] blur-[140px] -bottom-40 -right-40 rounded-full animate-morph" style="animation-delay: 5s;"></div>
+
+    <div class="max-w-7xl mx-auto px-6 relative">
+
+        <div class="text-center mb-16">
+            <span appScrollAnimate animation="fadeDown" [duration]="0.8"
+                class="inline-block px-4 py-1.5 text-[10px] font-semibold tracking-[3px] uppercase text-primary-400 bg-primary-500/8 border border-primary-500/15 rounded-full mb-5" style="font-family: 'Inter', sans-serif;">
+                Why Choose Us
+            </span>
+            <h2 appScrollAnimate animation="blurIn" [delay]="0.15" [duration]="1"
+                class="text-4xl sm:text-5xl font-light mb-4" style="font-family: 'Cormorant Garamond', serif;">
+                The Art of
+                <span class="text-luxury-gradient italic font-medium"> Luxury</span>
+            </h2>
+            <p appScrollAnimate animation="fadeUp" [delay]="0.3"
+                class="text-slate-400 text-base max-w-md mx-auto" style="font-family: 'Inter', sans-serif;">
+                Experience fragrance shopping reimagined with elegance
+            </p>
+        </div>
+
+        <div appScrollAnimate animation="stagger" [staggerDelay]="0.15" [delay]="0.1"
+             class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+            <div class="luxury-card group bg-dark/60 backdrop-blur-xl border border-white/[0.05] rounded-2xl p-8 text-center">
+                <div class="w-16 h-16 bg-gradient-to-br from-primary-500/20 to-primary-600/10 rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-primary-500/20 transition-all duration-500 micro-icon">⚡</div>
+                <h5 class="font-semibold mb-3 text-lg" style="font-family: 'Cormorant Garamond', serif; font-size: 1.3rem;">Swift Delivery</h5>
+                <p class="text-slate-400 text-sm leading-relaxed" style="font-family: 'Inter', sans-serif;">Premium packaging with assured quick delivery to your doorstep.</p>
+            </div>
+
+            <div class="luxury-card group bg-dark/60 backdrop-blur-xl border border-white/[0.05] rounded-2xl p-8 text-center">
+                <div class="w-16 h-16 bg-gradient-to-br from-secondary-500/20 to-secondary-600/10 rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-secondary-500/20 transition-all duration-500 micro-icon">🛡️</div>
+                <h5 class="font-semibold mb-3 text-lg" style="font-family: 'Cormorant Garamond', serif; font-size: 1.3rem;">Secure Payment</h5>
+                <p class="text-slate-400 text-sm leading-relaxed" style="font-family: 'Inter', sans-serif;">100% secure checkout with advanced encryption technology.</p>
+            </div>
+
+            <div class="luxury-card group bg-dark/60 backdrop-blur-xl border border-white/[0.05] rounded-2xl p-8 text-center">
+                <div class="w-16 h-16 bg-gradient-to-br from-primary-500/20 to-secondary-500/10 rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-primary-500/20 transition-all duration-500 micro-icon">🌸</div>
+                <h5 class="font-semibold mb-3 text-lg" style="font-family: 'Cormorant Garamond', serif; font-size: 1.3rem;">Finest Ingredients</h5>
+                <p class="text-slate-400 text-sm leading-relaxed" style="font-family: 'Inter', sans-serif;">Long-lasting fragrances crafted from the world's finest essences.</p>
+            </div>
+
+            <div class="luxury-card group bg-dark/60 backdrop-blur-xl border border-white/[0.05] rounded-2xl p-8 text-center">
+                <div class="w-16 h-16 bg-gradient-to-br from-secondary-500/20 to-primary-500/10 rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-secondary-500/20 transition-all duration-500 micro-icon">💎</div>
+                <h5 class="font-semibold mb-3 text-lg" style="font-family: 'Cormorant Garamond', serif; font-size: 1.3rem;">Luxury Experience</h5>
+                <p class="text-slate-400 text-sm leading-relaxed" style="font-family: 'Inter', sans-serif;">An exclusive scent journey designed for true elegance.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+<!-- ═══════ POPULAR PERFUMES (Scroll Triggered) ═══════ -->
+<section class="py-24 relative overflow-hidden">
+
+    <div class="bg-orb absolute w-[300px] h-[300px] bg-primary-400 opacity-[0.03] blur-[100px] top-20 right-10 rounded-full"></div>
+
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex items-end justify-between mb-14">
+            <div>
+                <span appScrollAnimate animation="fadeDown" [duration]="0.7"
+                    class="inline-block px-4 py-1.5 text-[10px] font-semibold tracking-[3px] uppercase text-primary-400 bg-primary-500/8 border border-primary-500/15 rounded-full mb-5" style="font-family: 'Inter', sans-serif;">
+                    Best Sellers
+                </span>
+                <h2 appScrollAnimate animation="blurIn" [delay]="0.1"
+                    class="text-4xl sm:text-5xl font-light" style="font-family: 'Cormorant Garamond', serif;">
+                    Our Signature
+                    <span class="text-gold-gradient italic font-medium"> Collection</span>
+                </h2>
+                <p appScrollAnimate animation="fadeUp" [delay]="0.25"
+                    class="text-slate-400 mt-3" style="font-family: 'Inter', sans-serif;">Top fragrances loved by our clientele</p>
+            </div>
+            <a routerLink="products" appScrollAnimate animation="fadeLeft" [delay]="0.3"
+                class="hidden sm:inline-flex px-6 py-3 border border-slate-700/50 text-slate-300 text-sm font-medium rounded-full hover:bg-white/5 hover:border-slate-600 transition-all duration-300" style="font-family: 'Inter', sans-serif;">
+                View All →
+            </a>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div *ngFor="let i of products; let idx = index"
+                appScrollAnimate animation="fadeUp" [delay]="idx * 0.1" [duration]="0.9"
+                class="luxury-card group bg-card border border-white/[0.05] rounded-2xl overflow-hidden">
+
+                <div class="h-60 overflow-hidden bg-slate-900/50 relative">
+                    <img [src]="i.image" [alt]="i.pname"
+                        class="img-reveal w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <!-- Gradient overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-60"></div>
+                    <!-- Quick view -->
+                    <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        <a [routerLink]="['/products', i.id]"
+                            class="px-5 py-2.5 bg-white/10 backdrop-blur-md text-white text-sm font-medium rounded-full border border-white/20 hover:bg-white/20 transition-all" style="font-family: 'Inter', sans-serif;">
+                            Quick View
+                        </a>
+                    </div>
+                </div>
+
+                <div class="p-6">
+                    <h5 class="font-medium text-xl mb-2 capitalize" style="font-family: 'Cormorant Garamond', serif; font-size: 1.25rem;">
+                        {{i.pname}}
+                    </h5>
+                    <div class="flex items-center justify-between mt-3">
+                        <span class="text-xl font-bold text-primary-300" style="font-family: 'Inter', sans-serif;">&#8377;{{i.price}}</span>
+                        <a [routerLink]="['/products', i.id]"
+                            class="px-4 py-2 text-xs font-semibold tracking-wider uppercase border border-primary-500/30 text-primary-400 rounded-full hover:bg-primary-500 hover:text-white hover:border-primary-500 transition-all duration-300" style="font-family: 'Inter', sans-serif;">
+                            View
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-10 sm:hidden">
+            <a routerLink="products"
+                class="px-7 py-3.5 border border-slate-700/50 text-slate-300 text-sm font-medium rounded-full hover:bg-white/5 transition-all" style="font-family: 'Inter', sans-serif;">
+                View All Fragrances
+            </a>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- ═══════ BRAND STORY SECTION (Parallax + Reveal) ═══════ -->
+<section class="py-24 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+            <!-- Image Side — clip reveal -->
+            <div class="relative" appScrollAnimate animation="parallax" [parallaxSpeed]="0.2">
+                <div class="absolute w-full h-full bg-gradient-to-br from-primary-500/10 to-secondary-500/10 rounded-3xl -rotate-3 scale-105"></div>
+                <img src="/images/posn.jpg" alt="Zenvora Craftsmanship"
+                     class="story-image relative rounded-3xl shadow-2xl w-full h-auto object-cover luxury-frame">
+            </div>
+
+            <!-- Text Side -->
+            <div>
+                <span appScrollAnimate animation="fadeDown" [duration]="0.7"
+                    class="inline-block px-4 py-1.5 text-[10px] font-semibold tracking-[3px] uppercase text-secondary-400 bg-secondary-500/8 border border-secondary-500/15 rounded-full mb-6" style="font-family: 'Inter', sans-serif;">
+                    Our Story
+                </span>
+                <h2 appScrollAnimate animation="blurIn" [delay]="0.1"
+                    class="text-4xl sm:text-5xl font-light mb-6 leading-tight" style="font-family: 'Cormorant Garamond', serif;">
+                    Crafted with
+                    <span class="text-luxury-gradient italic font-medium">Passion</span>
+                    & Precision
+                </h2>
+                <p appScrollAnimate animation="fadeUp" [delay]="0.2"
+                    class="text-slate-400 leading-relaxed mb-6" style="font-family: 'Inter', sans-serif;">
+                    Every Zenvora fragrance is a masterpiece — meticulously blended by world-renowned perfumers
+                    using the rarest ingredients sourced from across the globe. From French lavender fields
+                    to Indian sandalwood forests, each note tells a story of luxury and artistry.
+                </p>
+                <p appScrollAnimate animation="fadeUp" [delay]="0.35"
+                    class="text-slate-400 leading-relaxed mb-8" style="font-family: 'Inter', sans-serif;">
+                    Our commitment to excellence ensures every bottle embodies sophistication,
+                    leaving an unforgettable impression wherever you go.
+                </p>
+
+                <div appScrollAnimate animation="stagger" [staggerDelay]="0.12" [delay]="0.4"
+                     class="flex gap-8">
+                    <div class="text-center">
+                        <div class="text-2xl font-light text-gold-gradient" style="font-family: 'Cormorant Garamond', serif;">50+</div>
+                        <div class="text-xs text-slate-500 mt-1 tracking-wider uppercase" style="font-family: 'Inter', sans-serif;">Countries</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-light text-gold-gradient" style="font-family: 'Cormorant Garamond', serif;">100%</div>
+                        <div class="text-xs text-slate-500 mt-1 tracking-wider uppercase" style="font-family: 'Inter', sans-serif;">Natural</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-light text-gold-gradient" style="font-family: 'Cormorant Garamond', serif;">15+</div>
+                        <div class="text-xs text-slate-500 mt-1 tracking-wider uppercase" style="font-family: 'Inter', sans-serif;">Years Legacy</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- ═══════ CTA SECTION (Scale-in) ═══════ -->
+<section class="py-20">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="cta-card relative rounded-[2rem] overflow-hidden">
+            <!-- Gradient Background -->
+            <div class="absolute inset-0 bg-gradient-to-r from-primary-600 via-primary-500 to-secondary-600 animate-gradient"></div>
+            <!-- Decorative shapes -->
+            <div class="absolute -top-1/2 -right-1/4 w-[500px] h-[500px] bg-white/10 rounded-full blur-xl"></div>
+            <div class="absolute -bottom-1/3 -left-1/4 w-[400px] h-[400px] bg-white/5 rounded-full blur-xl"></div>
+
+            <div class="relative z-10 px-10 sm:px-16 py-16 flex flex-col sm:flex-row items-center justify-between gap-8">
+                <div>
+                    <h2 class="text-3xl sm:text-4xl font-light text-white mb-3" style="font-family: 'Cormorant Garamond', serif;">
+                        Find Your Signature Scent
+                    </h2>
+                    <p class="text-white/80 max-w-md" style="font-family: 'Inter', sans-serif;">
+                        Join thousands of happy customers and experience timeless luxury fragrances crafted just for you.
+                    </p>
+                </div>
+                <a routerLink="register"
+                    class="btn-luxury shrink-0 px-9 py-4 bg-white text-primary-700 font-semibold rounded-full shadow-xl text-sm tracking-wide" style="font-family: 'Inter', sans-serif;">
+                    Get Started Today
+                </a>
+            </div>
+        </div>
+    </div>
+</section>

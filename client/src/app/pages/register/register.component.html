@@ -1,0 +1,69 @@
+<!-- ═══════ REGISTER — LUXURY EXPERIENCE ═══════ -->
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden py-12">
+
+    <!-- Animated Background -->
+    <div class="absolute w-[500px] h-[500px] bg-secondary-500 rounded-full -top-32 -left-32 opacity-[0.06] blur-[140px] animate-morph"></div>
+    <div class="absolute w-[400px] h-[400px] bg-primary-500 rounded-full -bottom-32 -right-32 opacity-[0.06] blur-[140px] animate-morph" style="animation-delay: 4s;"></div>
+    <div class="absolute inset-0 opacity-[0.02]" style="background-image: linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 60px 60px;"></div>
+
+    <!-- Particles -->
+    <div class="particles">
+        <div class="particle" style="left:15%; bottom:0; animation-duration:9s; animation-delay:1s; background: rgba(168,85,247,0.5);"></div>
+        <div class="particle" style="left:45%; bottom:0; animation-duration:13s; animation-delay:3s;"></div>
+        <div class="particle" style="left:75%; bottom:0; animation-duration:10s; animation-delay:5s; background: rgba(168,85,247,0.4);"></div>
+    </div>
+
+    <div class="w-full max-w-md mx-auto px-6 relative z-10 animate-scale-in">
+        <div class="bg-card/40 backdrop-blur-2xl border border-white/[0.06] rounded-[2rem] p-9 sm:p-11 shadow-2xl">
+
+            <!-- Header -->
+            <div class="text-center mb-9">
+                <div class="w-20 h-20 bg-gradient-to-br from-secondary-500/20 to-primary-500/20 rounded-2xl flex items-center justify-center mx-auto mb-6 text-3xl border border-white/[0.06] animate-float">
+                    ✨
+                </div>
+                <h2 class="text-3xl font-light mb-2" style="font-family: 'Cormorant Garamond', serif;">Join <span class="text-luxury-gradient italic">Zenvora</span></h2>
+                <p class="text-slate-400 text-sm" style="font-family: 'Inter', sans-serif;">Create your account and discover luxury</p>
+            </div>
+
+            <!-- Error -->
+            <p *ngIf="errorMsg"
+                class="mb-5 p-3.5 bg-red-500/8 border border-red-500/15 rounded-xl text-red-400 text-sm text-center" style="font-family: 'Inter', sans-serif;">
+                {{errorMsg}}
+            </p>
+
+            <!-- Form -->
+            <form [formGroup]="registerForm" (ngSubmit)="register()" class="space-y-5" style="font-family: 'Inter', sans-serif;">
+                <div>
+                    <label for="email" class="block text-xs font-semibold text-slate-400 mb-2.5 tracking-wider uppercase">Email Address</label>
+                    <input formControlName="email" type="email" id="email" placeholder="john.doe&#64;example.com"
+                        class="w-full px-5 py-3.5 bg-white/[0.03] border border-white/[0.08] rounded-xl text-slate-100 placeholder-slate-600 text-sm focus:outline-none focus:border-secondary-500/40 focus:ring-2 focus:ring-secondary-500/10 transition-all duration-300"
+                        required>
+                </div>
+
+                <div>
+                    <label for="password" class="block text-xs font-semibold text-slate-400 mb-2.5 tracking-wider uppercase">Password</label>
+                    <input formControlName="password" type="password" id="password"
+                        placeholder="Create a strong password"
+                        class="w-full px-5 py-3.5 bg-white/[0.03] border border-white/[0.08] rounded-xl text-slate-100 placeholder-slate-600 text-sm focus:outline-none focus:border-secondary-500/40 focus:ring-2 focus:ring-secondary-500/10 transition-all duration-300"
+                        required>
+                </div>
+
+                <button type="submit"
+                    class="btn-luxury w-full py-4 bg-gradient-to-r from-secondary-500 to-secondary-600 text-white font-semibold rounded-xl shadow-lg shadow-secondary-500/20 text-sm tracking-wide">
+                    Create Account
+                </button>
+
+                <p class="text-center text-slate-400 text-sm pt-2">
+                    Already have an account?
+                    <a routerLink="/login"
+                        class="text-secondary-400 hover:text-secondary-300 font-semibold transition-colors">Sign In</a>
+                </p>
+            </form>
+
+            <!-- Security note -->
+            <p class="text-center text-slate-500 text-xs mt-8">
+                🔒 Your information is encrypted and secure
+            </p>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,171 @@
+<style>
+    /* Subtle custom styling to lift the UI (no animation) */
+    :root {
+        --accent-1: #6c5ce7;
+        --accent-2: #00b894;
+        --card-radius: 12px;
+        --muted: #6b7280;
+    }
+
+    body {
+        background: #f6f8fb;
+        color: #0f172a;
+        font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    /* Header gradient */
+    .topbar {
+        background: linear-gradient(90deg, rgba(108, 92, 231, 0.12), rgba(0, 184, 148, 0.06));
+        backdrop-filter: blur(2px);
+        border-bottom: 1px solid rgba(15, 23, 42, 0.04);
+    }
+
+    /* Sidebar */
+    .sidebar {
+        width: 260px;
+        height: 100vh;
+        background: #fff;
+        border-right: 1px solid rgba(15, 23, 42, 0.04);
+        padding: 28px;
+        /* position: absolute;
+        z-index: 20; */
+    }
+
+    .brand {
+        font-weight: 700;
+        letter-spacing: -0.2px;
+    }
+
+    .nav-link {
+        color: var(--muted);
+        border-radius: 10px;
+    }
+
+    .nav-link.active {
+        background: linear-gradient(90deg, var(--accent-1), #7c6ef0);
+        /* color: #fff !important; */
+    }
+
+    /* Cards */
+    .card-elevated {
+        border: 0;
+        border-radius: var(--card-radius);
+        box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+    }
+
+    /* Stat value */
+    .stat-value {
+        font-size: 1.6rem;
+        font-weight: 700;
+    }
+
+    /* Small avatars */
+    .avatar {
+        width: 38px;
+        height: 38px;
+        border-radius: 999px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        color: #fff;
+        background: linear-gradient(135deg, var(--accent-1), #8d7bf6);
+    }
+
+    /* Table */
+    .table thead th {
+        border-bottom: none;
+        color: var(--muted);
+        font-weight: 600;
+        font-size: .85rem;
+    }
+
+    .table tbody tr {
+        background: #fff;
+        border-radius: 8px;
+    }
+
+    .table td,
+    .table th {
+        vertical-align: middle;
+    }
+
+    /* Quick actions */
+    .btn-soft {
+        background: rgba(15, 23, 42, 0.04);
+        border: none;
+        color: #0f172a;
+        border-radius: 10px;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 991px) {
+        .sidebar {
+            display: none;
+        }
+    }
+</style>
+
+<div class="d-flex">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="mb-4">
+            <div class="brand fs-4">Zenvora — Luxury Fragrances</div>
+            <div class="text-muted small">Admin Dashboard</div>
+        </div>
+
+        <nav class="nav flex-column gap-1">
+            <a class="nav-link px-3 py-2 d-flex align-items-center gap-2" routerLink="/" routerLinkActive="active"
+                [routerLinkActiveOptions]="{exact: true}">
+                <i class="bi bi-plus-circle"></i> Add products
+            </a>
+            <a class="nav-link px-3 py-2 d-flex align-items-center gap-2" routerLink="/users" routerLinkActive="active">
+                <i class="bi bi-people"></i> Users
+              </a>
+              <a class="nav-link px-3 py-2 d-flex align-items-center gap-2" routerLink="/orders" routerLinkActive="active">
+                <i class="bi bi-box-seam"></i> Orders
+              </a>
+        </nav>
+
+        <div class="mt-auto pt-4 border-top">
+            <button (click)="logout()"
+                class="nav-link w-100 px-3 py-2 d-flex align-items-center gap-2 text-danger hover:bg-danger/10 transition-colors text-left border-0 bg-transparent">
+                <i class="bi bi-box-arrow-right"></i> Logout
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main area -->
+    <div class="flex-grow-1 w-100">
+        <!-- Topbar -->
+        <header class="d-flex align-items-center justify-content-between px-4 py-3 topbar">
+            <div class="d-flex align-items-center gap-3">
+                <h3 class="mb-0">Overview</h3>
+                <span class="badge bg-light text-muted">Dashboard</span>
+            </div>
+
+            <div class="d-flex align-items-center gap-3">
+                <div class="input-group" style="width:320px;">
+                    <span class="input-group-text bg-white border-end-0"><i class="bi bi-search"></i></span>
+                    <input type="search" class="form-control border-start-0" placeholder="Search users, reports..."
+                        aria-label="search">
+                </div>
+
+                <button class="btn btn-outline-secondary btn-sm">Export</button>
+
+                <div class="d-flex align-items-center gap-2">
+                    <div class="text-end me-2">
+                        <div class="small text-muted">Signed in as</div>
+                        <div class="fw-semibold">Admin</div>
+                    </div>
+                    <div class="avatar">AK</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Content Area - Router content will be projected here -->
+        <div class="p-4">
+            <ng-content></ng-content>
+        </div>
+    </div>
+</div>

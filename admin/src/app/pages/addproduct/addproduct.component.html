@@ -1,0 +1,90 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="mb-4">{{ editId ? 'Update Product' : 'Add Product' }}</h2>
+
+            <div class="card">
+                <div class="card-body">
+                    <form [formGroup]="product" (ngSubmit)="saveProduct()">
+                        <!-- Product Name -->
+                        <div class="mb-3">
+                            <label class="form-label">Product Name</label>
+                            <input type="text" formControlName="pname" class="form-control"
+                                placeholder="Enter product name">
+                        </div>
+
+                        <!-- Description -->
+                        <div class="mb-3">
+                            <label class="form-label">Description</label>
+                            <textarea class="form-control" formControlName="pdesc" rows="3"
+                                placeholder="Enter product description"></textarea>
+                        </div>
+
+                        <div class="row">
+                            <!-- Price -->
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Price (₹)</label>
+                                <input type="number" formControlName="price" class="form-control"
+                                    placeholder="Enter price">
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <!-- Category -->
+                            <!-- <div class="col-md-6 mb-3">
+                                <label class="form-label">Category</label>
+                                <select class="form-select">
+                                    <option selected disabled>Select category</option>
+                                    <option value="watches">Watches</option>
+                                    <option value="electronics">Electronics</option>
+                                    <option value="accessories">Accessories</option>
+                                    <option value="clothing">Clothing</option>
+                                </select>
+                            </div> -->
+
+                            <!-- Product Image -->
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Product Image</label>
+                                <input type="file" (change)="onFileSelected($event)" class="form-control"
+                                    accept="image/*">
+                            </div>
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="d-flex gap-2">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="bi bi-plus-circle me-1"></i>{{ editId ? 'Update Product' : 'Add Product' }}
+                            </button>
+
+                        </div>
+                    </form>
+
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <table class="table mt-5 table-bordered p-5 table-hover">
+        <tr>
+            <th>Product Name</th>
+            <th>Product Price</th>
+            <th>Product Description</th>
+            <th>Product Image</th>
+            <th>Actions</th>
+        </tr>
+        <tr *ngFor="let p of products">
+            <td>{{p.pname}}</td>
+            <td>{{p.price}}</td>
+            <td>{{p.pdesc}}</td>
+            <td><img [src]="p.image" width="200"></td>
+            <td>
+                <button class="btn bg-danger btn-danger" (click)="deleteProduct(p.id)">Delete</button>
+                &nbsp;&nbsp;&nbsp;
+                <button (click)="editProduct(p)" class="btn btn-warning">Update</button>
+            </td>
+        </tr>
+    </table>
+</div>

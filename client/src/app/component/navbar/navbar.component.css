@@ -1,0 +1,48 @@
+/* ═══════ NAVBAR — PREMIUM STYLES ═══════ */
+
+/* ── Scroll Progress Bar ── */
+.scroll-progress-track {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: transparent;
+  z-index: 100;
+}
+
+.scroll-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #f59e0b, #a855f7, #ec4899);
+  border-radius: 0 2px 2px 0;
+  transition: width 0.1s linear;
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.4),
+              0 0 30px rgba(168, 85, 247, 0.15);
+}
+
+/* ── Nav Link Underline ── */
+.nav-link-luxury {
+  position: relative;
+}
+
+.nav-link-luxury::after {
+  content: '';
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #f59e0b, #a855f7);
+  border-radius: 2px;
+  transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.nav-link-luxury:hover::after,
+.nav-active::after {
+  width: 60%;
+}
+
+.nav-active {
+  color: #fbbf24 !important;
+}
